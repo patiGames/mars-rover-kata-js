@@ -1,0 +1,24 @@
+{
+  "name": "mars-rover",
+  "version": "1.0.0",
+  "description": "",
+  "main": "MarsRover.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/MarsRover.js",
+    "test": "mocha --require @babel/register --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.3"
+  }
+}
