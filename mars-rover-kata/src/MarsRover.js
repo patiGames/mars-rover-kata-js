@@ -21,6 +21,7 @@ export default class Rover {
   turnRight() {
     if (this.direction === 'S') this.direction = 'W';
     else if (this.direction === 'E') this.direction = 'S';
+    else if (this.direction === 'W') this.direction = 'N';
     else this.direction = 'E';
   }
 }

@@ -38,7 +38,9 @@ describe('MarsRoverShould', () => {
   tests = [
     { args: 'r', expected: '5 5 E' },
     { args: 'rr', expected: '5 5 S' },
-    { args: 'rrr', expected: '5 5 W' }
+    { args: 'rrr', expected: '5 5 W' },
+    { args: 'rrrr', expected: '5 5 N' },
+    { args: 'rrrrr', expected: '5 5 E' }
   ];
 
   tests.forEach(test => {
