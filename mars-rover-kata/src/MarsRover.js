@@ -12,6 +12,7 @@ export default class Rover {
   implement(commands) {
     for (let command of commands) {
       if (command === 'r') this.turnRight();
+      else if (command === 'l') this.turnLeft();
       else if (command === 'b') this.y--;
       else this.y++;
     }
@@ -23,5 +24,12 @@ export default class Rover {
     else if (this.direction === 'E') this.direction = 'S';
     else if (this.direction === 'W') this.direction = 'N';
     else this.direction = 'E';
+  }
+
+  turnLeft() {
+    if (this.direction === 'S') this.direction = 'E';
+    else if (this.direction === 'E') this.direction = 'N';
+    else if (this.direction === 'N') this.direction = 'W';
+    else this.direction = 'S';
   }
 }

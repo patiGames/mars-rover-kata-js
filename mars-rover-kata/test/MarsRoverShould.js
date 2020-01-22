@@ -48,4 +48,18 @@ describe('MarsRoverShould', () => {
       expect(rover.implement(test.args)).to.equal(test.expected);
     });
   });
+
+  tests = [
+    { args: 'l', expected: '5 5 W' },
+    { args: 'll', expected: '5 5 S' },
+    { args: 'lll', expected: '5 5 E' },
+    { args: 'llll', expected: '5 5 N' },
+    { args: 'lllll', expected: '5 5 W' }
+  ];
+
+  tests.forEach(test => {
+    it(`turn left ${test.args}`, () => {
+      expect(rover.implement(test.args)).to.equal(test.expected);
+    });
+  });
 });
