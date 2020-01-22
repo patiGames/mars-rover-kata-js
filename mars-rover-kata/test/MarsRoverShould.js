@@ -18,7 +18,7 @@ describe('MarsRoverShould', () => {
   ];
 
   tests.forEach(test => {
-    it(`move forward ${test.args}`, () => {
+    it(`move forward ${test.args} to ${test.expected}`, () => {
       expect(rover.implement(test.args)).to.equal(test.expected);
     });
   });
@@ -30,7 +30,7 @@ describe('MarsRoverShould', () => {
   ];
 
   tests.forEach(test => {
-    it(`move backward ${test.args}`, () => {
+    it(`move backward ${test.args} to ${test.expected}`, () => {
       expect(rover.implement(test.args)).to.equal(test.expected);
     });
   });
@@ -44,7 +44,7 @@ describe('MarsRoverShould', () => {
   ];
 
   tests.forEach(test => {
-    it(`turn right ${test.args}`, () => {
+    it(`turn right ${test.args} to ${test.expected}`, () => {
       expect(rover.implement(test.args)).to.equal(test.expected);
     });
   });
@@ -58,7 +58,22 @@ describe('MarsRoverShould', () => {
   ];
 
   tests.forEach(test => {
-    it(`turn left ${test.args}`, () => {
+    it(`turn left ${test.args} to ${test.expected}`, () => {
+      expect(rover.implement(test.args)).to.equal(test.expected);
+    });
+  });
+
+  tests = [
+    { args: 'rf', expected: '6 5 E' },
+    { args: 'rrf', expected: '5 4 S' },
+    { args: 'rrrf', expected: '4 5 W' },
+    { args: 'rrrrf', expected: '5 6 N' },
+    { args: 'rrrrrf', expected: '6 5 E' },
+    { args: 'rrrrrffffff', expected: '11 5 E' }
+  ];
+
+  tests.forEach(test => {
+    it(`turn and move forward ${test.args} to ${test.expected}`, () => {
       expect(rover.implement(test.args)).to.equal(test.expected);
     });
   });

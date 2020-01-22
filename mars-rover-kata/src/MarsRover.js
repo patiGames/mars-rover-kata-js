@@ -1,12 +1,14 @@
+import { DIRECTIONS } from './DIRECTIONS';
+
 export default class Rover {
-  constructor(x, y, direction) {
+  constructor(x, y, directionId) {
     this.x = x;
     this.y = y;
-    this.direction = direction;
+    this.direction = new DIRECTIONS().getDirectionBy(directionId);
   }
 
   get position() {
-    return `${this.x} ${this.y} ${this.direction}`;
+    return `${this.x} ${this.y} ${this.direction.id}`;
   }
 
   implement(commands) {
@@ -14,22 +16,21 @@ export default class Rover {
       if (command === 'r') this.turnRight();
       else if (command === 'l') this.turnLeft();
       else if (command === 'b') this.y--;
-      else this.y++;
+      else this.moveForward();
     }
     return this.position;
   }
 
+  moveForward() {
+    this[this.direction.propertyAxis] =
+      this[this.direction.propertyAxis] + this.direction.forwardAxis;
+  }
+
   turnRight() {
-    if (this.direction === 'S') this.direction = 'W';
-    else if (this.direction === 'E') this.direction = 'S';
-    else if (this.direction === 'W') this.direction = 'N';
-    else this.direction = 'E';
+    this.direction = this.direction.right;
   }
 
   turnLeft() {
-    if (this.direction === 'S') this.direction = 'E';
-    else if (this.direction === 'E') this.direction = 'N';
-    else if (this.direction === 'N') this.direction = 'W';
-    else this.direction = 'S';
+    this.direction = this.direction.left;
   }
 }
